@@ -20,9 +20,9 @@ public class ControllerTest {
     private MockMvc mvc;
 
     @Test
-    public void testLoadContext() throws Exception {
+    public void getTestGreetingTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/test")).andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().bytes("Hello".getBytes()));
+                .andExpect(MockMvcResultMatchers.content().string("Hello"));
     }
 }

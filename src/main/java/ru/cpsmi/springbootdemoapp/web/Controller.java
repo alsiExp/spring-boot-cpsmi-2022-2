@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.cpsmi.springbootdemoapp.model.Student;
 import ru.cpsmi.springbootdemoapp.repository.StudentRepository;
 
+import java.util.List;
+
 @RestController
 public class Controller {
 
@@ -25,9 +27,14 @@ public class Controller {
         return repository.save(name);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/students/{id}")
     public Student find(@PathVariable Long id) {
         return repository.findById(id);
+    }
+
+    @GetMapping("/students")
+    public List<Student> findAll() {
+        return repository.findAll();
     }
 
 }

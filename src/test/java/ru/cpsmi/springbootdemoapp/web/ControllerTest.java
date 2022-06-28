@@ -25,4 +25,13 @@ public class ControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Hello"));
     }
+
+    @Test
+    public void saveStudentTest() throws Exception {
+        String name = "Вася";
+        mvc.perform(MockMvcRequestBuilders.get("/save/" + name )).andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", is(1)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name", is(name)));
+    }
 }

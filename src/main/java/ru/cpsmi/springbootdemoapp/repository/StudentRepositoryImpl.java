@@ -21,7 +21,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public List<Student> findAll() {
-        return null;
+        return new ArrayList<>(map.values());
     }
 
     @Override
